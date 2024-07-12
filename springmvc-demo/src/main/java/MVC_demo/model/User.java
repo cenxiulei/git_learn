@@ -1,4 +1,4 @@
-package MVC.learn.demo.model;
+package MVC_demo.model;
 
 
 import jakarta.persistence.*;

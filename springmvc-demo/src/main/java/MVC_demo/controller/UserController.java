@@ -1,8 +1,8 @@
-package MVC.learn.demo.controller;
+package MVC_demo.controller;
 
 
-import MVC.learn.demo.model.User;
-import MVC.learn.demo.service.UserService;
+import MVC_demo.model.User;
+import MVC_demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

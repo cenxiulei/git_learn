@@ -14,12 +14,12 @@
            http://www.springframework.org/schema/mvc
            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="MVC.learn.demo" />
+    <context:component-scan base-package="MVC_demo" />
     <mvc:annotation-driven />
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="MVC.learn.demo.model" />
+        <property name="packagesToScan" value="MVC_demo.model" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>
@@ -36,5 +36,5 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
 
-    <jpa:repositories base-package="MVC.learn.demo.repository" />
+    <jpa:repositories base-package="MVC_demo.repository" />
 </beans>

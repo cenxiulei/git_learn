@@ -1,6 +1,6 @@
-package MVC.learn.demo.repository;
+package MVC_demo.repository;
 
-import MVC.learn.demo.model.User;
+import MVC_demo.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

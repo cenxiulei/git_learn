@@ -1,8 +1,8 @@
-package MVC.learn.demo.service;
+package MVC_demo.service;
 
 
-import MVC.learn.demo.model.User;
-import MVC.learn.demo.repository.UserRepository;
+import MVC_demo.model.User;
+import MVC_demo.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

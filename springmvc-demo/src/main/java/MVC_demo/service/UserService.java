@@ -1,6 +1,6 @@
-package MVC.learn.demo.service;
+package MVC_demo.service;
 
-import MVC.learn.demo.model.User;
+import MVC_demo.model.User;
 
 import java.util.List;
 import java.util.Optional;
