@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User creatUser(User user) {
+    public User createUser(User user) {
         user.setUserId(UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE);
         user.setCreatedAt(LocalDateTime.now());
         return userRepository.save(user);
