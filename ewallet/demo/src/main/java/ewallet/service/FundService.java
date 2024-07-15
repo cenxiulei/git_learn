@@ -1,5 +1,6 @@
 package ewallet.service;
 
+import ewallet.dto.FundDto;
 import ewallet.model.Deposit;
 import ewallet.model.Withdrawal;
 import ewallet.respository.DepositRepository;
@@ -19,25 +20,21 @@ public class FundService {
     @Autowired
     private WithdrawalRepository withdrawalRepository;
 
-    public Deposit createDeposit(String walletId, double amount, String currency) {
+    public Deposit createDeposit(FundDto fundDto) {
         Deposit deposit = new Deposit();
-        deposit.setDepositId(UUID.randomUUID().toString());
-        deposit.setWalletId(walletId);
-        deposit.setAmount(amount);
-        deposit.setCurrency(currency);
+        deposit.setWalletId(fundDto.getWalletId());
+        deposit.setAmount(fundDto.getAmount());
+        deposit.setCurrency(fundDto.getCurrency());
         deposit.setStatus("COMPLETED");
-        deposit.setCreatedAt(LocalDateTime.now());
         return depositRepository.save(deposit);
     }
 
-    public Withdrawal createWithdrawal(String walletId, double amount, String currency) {
+    public Withdrawal createWithdrawal(FundDto fundDto) {
         Withdrawal withdrawal = new Withdrawal();
-        withdrawal.setWithdrawalId(UUID.randomUUID().toString());
-        withdrawal.setWalletId(walletId);
-        withdrawal.setAmount(amount);
-        withdrawal.setCurrency(currency);
+        withdrawal.setWalletId(fundDto.getWalletId());
+        withdrawal.setAmount(fundDto.getAmount());
+        withdrawal.setCurrency(fundDto.getCurrency());
         withdrawal.setStatus("COMPLETED");
-        withdrawal.setCreatedAt(LocalDateTime.now());
         return withdrawalRepository.save(withdrawal);
     }
 }

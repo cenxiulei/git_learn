@@ -1,8 +1,10 @@
 package ewallet.controller;
 
+import ewallet.dto.TransactionDto;
 import ewallet.model.Transaction;
 import ewallet.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,13 +15,13 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @PostMapping
-    public Transaction createTransaction(@RequestParam String fromWalletId, @RequestParam String toWalletId, @RequestParam double amount, @RequestParam String currency) {
-        return transactionService.createTransaction(fromWalletId, toWalletId, amount, currency);
+    public ResponseEntity<?> createTransaction(@RequestBody TransactionDto transactionDto) {
+        return ResponseEntity.ok(transactionService.createTransaction(transactionDto));
     }
 
     @GetMapping("/{transactionId}")
-    public Transaction getTransaction(@PathVariable String transactionId) {
-        return transactionService.getTransaction(transactionId);
+    public ResponseEntity<?> getTransaction(@PathVariable String transactionId) {
+        return ResponseEntity.ok(transactionService.getTransaction(transactionId));
     }
 }
 

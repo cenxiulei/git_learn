@@ -1,8 +1,10 @@
 package ewallet.controller;
 
+import ewallet.dto.WalletDto;
 import ewallet.model.Wallet;
 import ewallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,12 +15,12 @@ public class WalletController {
     private WalletService walletService;
 
     @PostMapping
-    public Wallet createWallet(@RequestParam String userId, @RequestParam String currency) {
-        return walletService.createWallet(userId, currency);
+    public ResponseEntity<?> createWallet(@RequestBody WalletDto walletDto) {
+        return ResponseEntity.ok(walletService.createWallet(walletDto));
     }
 
     @GetMapping("/{walletId}")
-    public Wallet getWallet(@PathVariable String walletId) {
-        return walletService.getWallet(walletId);
+    public ResponseEntity<?> getWallet(@PathVariable String walletId) {
+        return ResponseEntity.ok(walletService.getWallet(walletId));
     }
 }

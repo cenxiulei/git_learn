@@ -1,5 +1,6 @@
 package ewallet.service;
 
+import ewallet.dto.TransactionDto;
 import ewallet.model.Transaction;
 import ewallet.respository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +15,13 @@ public class TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    public Transaction createTransaction(String fromWalletId, String toWalletId, double amount, String currency) {
+    public Transaction createTransaction(TransactionDto transactionDto) {
         Transaction transaction = new Transaction();
-        transaction.setTransactionId(UUID.randomUUID().toString());
-        transaction.setFromWalletId(fromWalletId);
-        transaction.setToWalletId(toWalletId);
-        transaction.setAmount(amount);
-        transaction.setCurrency(currency);
+        transaction.setFromWalletId(transactionDto.getFromWalletId());
+        transaction.setToWalletId(transactionDto.getToWalletId());
+        transaction.setAmount(transactionDto.getAmount());
+        transaction.setCurrency(transactionDto.getCurrency());
         transaction.setStatus("PENDING");
-        transaction.setCreatedAt(LocalDateTime.now());
         return transactionRepository.save(transaction);
     }
 

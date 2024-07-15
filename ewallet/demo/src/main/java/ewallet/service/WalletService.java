@@ -1,5 +1,6 @@
 package ewallet.service;
 
+import ewallet.dto.WalletDto;
 import ewallet.model.Wallet;
 import ewallet.respository.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,11 @@ public class WalletService {
     @Autowired
     private WalletRepository walletRepository;
 
-    public Wallet createWallet(String userId, String currency) {
+    public Wallet createWallet(WalletDto walletDto) {
         Wallet wallet = new Wallet();
-        wallet.setWalletId(UUID.randomUUID().toString());
-        wallet.setUserId(userId);
-        wallet.setCurrency(currency);
+        wallet.setUserId(walletDto.getUserId());
+        wallet.setCurrency(walletDto.getCurrency());
         wallet.setBalance(0.0);
-        wallet.setCreatedAt(LocalDateTime.now());
         return walletRepository.save(wallet);
     }
 

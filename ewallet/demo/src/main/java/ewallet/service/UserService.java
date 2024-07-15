@@ -1,5 +1,6 @@
 package ewallet.service;
 
+import ewallet.dto.UserDto;
 import ewallet.model.User;
 import ewallet.respository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
