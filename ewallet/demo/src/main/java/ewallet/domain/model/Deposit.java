@@ -1,4 +1,4 @@
-package ewallet.model;
+package ewallet.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,20 +8,20 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "withdrawal")
+@Table(name = "deposit")
 @Data
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Withdrawal {
+public class Deposit {
     @Id
-    private String withdrawalId;
+    private String depositId;
     private String walletId;
     private double amount;
     private String currency;
     private String status;
     private LocalDateTime createdAt;
 
-    // Getters and Setters
+
 }

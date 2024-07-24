@@ -1,8 +1,13 @@
 package ewallet.controller;
 
-import ewallet.dto.WalletDto;
-import ewallet.model.Wallet;
-import ewallet.service.WalletService;
+import ewallet.domain.model.Wallet;
+import ewallet.domain.service.WalletService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import ewallet.application.WalletApplicationService;
+import ewallet.dto.WalletDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,15 +17,18 @@ import org.springframework.web.bind.annotation.*;
 public class WalletController {
 
     @Autowired
-    private WalletService walletService;
+    private WalletApplicationService walletApplicationService;
 
     @PostMapping
-    public ResponseEntity<?> createWallet(@RequestBody WalletDto walletDto) {
-        return ResponseEntity.ok(walletService.createWallet(walletDto));
+    public ResponseEntity<WalletDTO> createWallet(@RequestBody WalletDTO walletDTO) {
+        WalletDTO createdWallet = walletApplicationService.createWallet(walletDTO);
+        return ResponseEntity.ok(createdWallet);
     }
 
-    @GetMapping("/{walletId}")
-    public ResponseEntity<?> getWallet(@PathVariable String walletId) {
-        return ResponseEntity.ok(walletService.getWallet(walletId));
+    @GetMapping("/{id}")
+    public ResponseEntity<WalletDTO> getWallet(@PathVariable String id) {
+        WalletDTO wallet = walletApplicationService.getWallet(id);
+        return ResponseEntity.ok(wallet);
     }
 }
+

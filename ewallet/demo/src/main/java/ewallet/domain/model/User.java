@@ -1,4 +1,4 @@
-package ewallet.model;
+package ewallet.domain.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,6 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "w_user")
 @Data
 @Builder
 @ToString
@@ -15,7 +14,8 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
+
     private String username;
     private String password;
     private String email;

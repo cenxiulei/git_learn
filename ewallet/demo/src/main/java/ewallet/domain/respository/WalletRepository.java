@@ -1,6 +1,6 @@
-package ewallet.respository;
+package ewallet.domain.respository;
 
-import ewallet.model.Wallet;
+import ewallet.domain.model.Wallet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface WalletRepository extends JpaRepository<Wallet, String> {

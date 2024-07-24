@@ -1,8 +1,8 @@
 package ewallet.controller;
 
-import ewallet.dto.TransactionDto;
-import ewallet.model.Transaction;
-import ewallet.service.TransactionService;
+
+import ewallet.application.TransactionApplicationService;
+import ewallet.dto.TransactionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,16 +12,18 @@ import org.springframework.web.bind.annotation.*;
 public class TransactionController {
 
     @Autowired
-    private TransactionService transactionService;
+    private TransactionApplicationService transactionApplicationService;
 
     @PostMapping
-    public ResponseEntity<?> createTransaction(@RequestBody TransactionDto transactionDto) {
-        return ResponseEntity.ok(transactionService.createTransaction(transactionDto));
+    public ResponseEntity<TransactionDTO> createTransaction(@RequestBody TransactionDTO transactionDTO) {
+        TransactionDTO createdTransaction = transactionApplicationService.createTransaction(transactionDTO);
+        return ResponseEntity.ok(createdTransaction);
     }
 
-    @GetMapping("/{transactionId}")
-    public ResponseEntity<?> getTransaction(@PathVariable String transactionId) {
-        return ResponseEntity.ok(transactionService.getTransaction(transactionId));
+    @GetMapping("/{id}")
+    public ResponseEntity<TransactionDTO> getTransaction(@PathVariable Long id) {
+        TransactionDTO transaction = transactionApplicationService.getTransaction(id);
+        return ResponseEntity.ok(transaction);
     }
 }
 
