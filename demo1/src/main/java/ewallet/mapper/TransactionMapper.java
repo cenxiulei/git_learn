@@ -12,8 +12,6 @@ import java.math.BigDecimal;
 
 @Mapper(componentModel = "spring")
 public interface TransactionMapper {
-    TransactionMapper INSTANCE = Mappers.getMapper(TransactionMapper.class);
-
     @Mapping(source = "amount", target = "amount", qualifiedByName = "moneyToBigDecimal")
     @Mapping(source = "wallet.id", target = "walletId")
     TransactionDTO transactionToTransactionDTO(Transaction transaction);

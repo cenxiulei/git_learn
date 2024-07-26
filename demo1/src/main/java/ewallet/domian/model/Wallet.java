@@ -13,7 +13,10 @@ public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Money balance;
+
+    @Embedded
+    private Money balance; // 确保 Money 是 @Embeddable 类型
+
     private LocalDateTime createdAt;
 
     @OneToOne
@@ -23,5 +26,4 @@ public class Wallet {
 
     @OneToMany(mappedBy = "wallet", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Transaction> transactions; // 交易记录
-
 }

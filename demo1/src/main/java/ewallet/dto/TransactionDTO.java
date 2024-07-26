@@ -13,4 +13,5 @@ public class TransactionDTO {
     private LocalDateTime transactionTime;
     private BigDecimal amount;
     private String type;
+    private Long targetWalletId;
 }

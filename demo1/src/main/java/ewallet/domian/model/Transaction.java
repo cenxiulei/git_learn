@@ -18,7 +18,11 @@ public class Transaction {
     private Wallet wallet;
 
     private LocalDateTime transactionTime;
-    private Money amount;
+
+    @Embedded
+    private Money amount; // 确保 Money 是 @Embeddable 类型
+
     private String type; // e.g., credit, debit
-    private Long targetWalletId;
+
+    private Long targetWalletId; // 用于转账时指定目标钱包
 }

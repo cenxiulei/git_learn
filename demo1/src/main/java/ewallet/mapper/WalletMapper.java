@@ -14,8 +14,6 @@ import java.math.BigDecimal;
 
 @Mapper(componentModel = "spring")
 public interface WalletMapper {
-    WalletMapper INSTANCE = Mappers.getMapper(WalletMapper.class);
-
     @Mapping(source = "balance", target = "balance", qualifiedByName = "moneyToBigDecimal")
     @Mapping(source = "user", target = "userDTO", qualifiedByName = "userToUserDTO")
     WalletDTO walletToWalletDTO(Wallet wallet);
@@ -34,3 +32,4 @@ public interface WalletMapper {
         return userDTO;
     }
 }
+
