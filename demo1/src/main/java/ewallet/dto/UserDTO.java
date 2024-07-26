@@ -1,11 +1,15 @@
 package ewallet.dto;
 
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+@Data
 public class UserDTO {
     private Long id;
     private String username;
     private String password;
     private String email;
-    private String createdAt;
+    private LocalDateTime createdAt;
 
-    // Getters and setters
 }

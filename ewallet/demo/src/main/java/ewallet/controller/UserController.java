@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/users")
@@ -27,7 +29,8 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
     @GetMapping
-    public ResponseEntity<UserDTO> getUser1() {
+    public ResponseEntity<List<UserDTO>> getAllUser() {
+        List<UserDTO> users = userApplicationService.getAllUsers();
         return ResponseEntity.ok(null);
     }
 }

@@ -5,7 +5,7 @@ import ewallet.domain.model.Wallet;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface WalletMapper {
     WalletMapper INSTANCE = Mappers.getMapper(WalletMapper.class);
 
