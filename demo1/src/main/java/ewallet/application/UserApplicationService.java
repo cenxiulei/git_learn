@@ -6,7 +6,6 @@ import ewallet.dto.UserDTO;
 import ewallet.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,5 +33,14 @@ public class UserApplicationService {
     public UserDTO findUserByUsername(String username) {
         User user = userService.findByUsername(username);
         return userMapper.userToUserDTO(user);
+    }
+
+    public UserDTO updateUser(UserDTO userDTO) {
+        User user = userService.updateUser(userDTO);
+        return userMapper.userToUserDTO(user);
+    }
+
+    public void deleteUser(Long userId) {
+        userService.deleteUser(userId);
     }
 }

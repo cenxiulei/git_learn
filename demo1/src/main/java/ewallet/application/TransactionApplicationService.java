@@ -1,17 +1,12 @@
 package ewallet.application;
 
-import ewallet.domian.model.Transaction;
-import ewallet.domian.model.Wallet;
 import ewallet.domian.model.valueobject.Money;
 import ewallet.domian.respository.WalletRepository;
 import ewallet.domian.service.TransactionService;
-import ewallet.domian.service.WalletService;
 import ewallet.dto.TransactionDTO;
 import ewallet.mapper.TransactionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 
 @Service
 public class TransactionApplicationService {

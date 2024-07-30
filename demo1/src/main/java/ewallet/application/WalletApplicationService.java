@@ -1,6 +1,5 @@
 package ewallet.application;
 
-import ewallet.domian.model.User;
 import ewallet.domian.model.Wallet;
 import ewallet.domian.model.valueobject.Money;
 import ewallet.domian.service.WalletService;
@@ -8,7 +7,6 @@ import ewallet.dto.WalletDTO;
 import ewallet.mapper.WalletMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,6 +30,15 @@ public class WalletApplicationService {
         return wallets.stream()
                 .map(walletMapper::walletToWalletDTO)
                 .collect(Collectors.toList());
+    }
+
+    public WalletDTO updateWallet(WalletDTO walletDTO) {
+        Wallet wallet = walletService.updateWallet(walletDTO);
+        return walletMapper.walletToWalletDTO(wallet);
+    }
+
+    public void deleteWallet(Long walletId) {
+        walletService.deleteWallet(walletId);
     }
 
     public WalletDTO deposit(Long walletId, Money amount) {

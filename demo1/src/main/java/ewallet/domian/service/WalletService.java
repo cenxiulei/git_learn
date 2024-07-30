@@ -6,6 +6,7 @@ import ewallet.domian.model.Wallet;
 import ewallet.domian.model.valueobject.Money;
 import ewallet.domian.respository.TransactionRepository;
 import ewallet.domian.respository.WalletRepository;
+import ewallet.dto.WalletDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +44,17 @@ public class WalletService {
         return walletRepository.findById(walletId)
                 .orElseThrow(() -> new RuntimeException("Wallet not found with id: " + walletId));
     }
+
+    public Wallet updateWallet(WalletDTO walletDTO) {
+        Wallet wallet = walletRepository.findById(walletDTO.getId())
+                .orElseThrow(() -> new RuntimeException("Wallet not found"));
+        return walletRepository.save(wallet);
+    }
+
+    public void deleteWallet(Long walletId) {
+        walletRepository.deleteById(walletId);
+    }
+
 
     public Wallet deposit(Wallet wallet, Money amount) {
         wallet.setBalance(new Money(wallet.getBalance().getAmount().add(amount.getAmount())));

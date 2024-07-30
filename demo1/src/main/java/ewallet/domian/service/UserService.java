@@ -2,6 +2,7 @@ package ewallet.domian.service;
 
 import ewallet.domian.model.User;
 import ewallet.domian.respository.UserRepository;
+import ewallet.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +34,15 @@ public class UserService {
 
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    public User updateUser(UserDTO userDTO) {
+        User user = userRepository.findById(userDTO.getId())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(Long userId) {
+        userRepository.deleteById(userId);
     }
 }
