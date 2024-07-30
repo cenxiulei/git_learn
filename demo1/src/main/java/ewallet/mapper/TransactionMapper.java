@@ -1,12 +1,11 @@
 package ewallet.mapper;
 
-import ewallet.domian.model.Transaction;
-import ewallet.domian.model.valueobject.Money;
+import ewallet.domian.entities.Transaction;
+import ewallet.domian.entities.valueobject.Money;
 import ewallet.dto.TransactionDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-import org.mapstruct.factory.Mappers;
 
 import java.math.BigDecimal;
 

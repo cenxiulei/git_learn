@@ -1,6 +1,6 @@
 package ewallet.application;
 
-import ewallet.domian.model.User;
+import ewallet.domian.entities.User;
 import ewallet.domian.service.UserService;
 import ewallet.dto.UserDTO;
 import ewallet.mapper.UserMapper;

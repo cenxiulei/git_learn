@@ -1,6 +1,6 @@
 package ewallet.application;
 
-import ewallet.domian.model.valueobject.Money;
+import ewallet.domian.entities.valueobject.Money;
 import ewallet.domian.respository.WalletRepository;
 import ewallet.domian.service.TransactionService;
 import ewallet.dto.TransactionDTO;
@@ -20,7 +20,6 @@ public class TransactionApplicationService {
     private TransactionMapper transactionMapper;
 
     public TransactionDTO createTransaction(Long walletId, Money amount, String type) {
-        // 从数据库中获取 Wallet 实例
         var wallet = walletRepository.findById(walletId)
                 .orElseThrow(() -> new IllegalArgumentException("Wallet not found"));
         var transaction = transactionService.createTransaction(wallet, amount, type);

@@ -1,9 +1,9 @@
 package ewallet.domian.service;
 
-import ewallet.domian.model.Transaction;
-import ewallet.domian.model.User;
-import ewallet.domian.model.Wallet;
-import ewallet.domian.model.valueobject.Money;
+import ewallet.domian.entities.Transaction;
+import ewallet.domian.entities.User;
+import ewallet.domian.entities.Wallet;
+import ewallet.domian.entities.valueobject.Money;
 import ewallet.domian.respository.TransactionRepository;
 import ewallet.domian.respository.WalletRepository;
 import ewallet.dto.WalletDTO;
@@ -80,15 +80,13 @@ public class WalletService {
             throw new IllegalArgumentException("Insufficient balance in source wallet");
         }
 
-        // 扣减源钱包余额
         sourceWallet.setBalance(new Money(sourceWallet.getBalance().getAmount().subtract(amount.getAmount())));
         walletRepository.save(sourceWallet);
 
-        // 增加目标钱包余额
+
         targetWallet.setBalance(new Money(targetWallet.getBalance().getAmount().add(amount.getAmount())));
         walletRepository.save(targetWallet);
 
-        // 创建转账交易记录
         Transaction sourceTransaction = new Transaction();
         sourceTransaction.setWallet(sourceWallet);
         sourceTransaction.setTransactionTime(LocalDateTime.now());

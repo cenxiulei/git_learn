@@ -1,7 +1,7 @@
 package ewallet.controller;
 
 import ewallet.application.TransactionApplicationService;
-import ewallet.domian.model.valueobject.Money;
+import ewallet.domian.entities.valueobject.Money;
 import ewallet.dto.TransactionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

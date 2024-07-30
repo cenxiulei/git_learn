@@ -1,6 +1,6 @@
 package ewallet.domian.service;
 
-import ewallet.domian.model.User;
+import ewallet.domian.entities.User;
 import ewallet.domian.respository.UserRepository;
 import ewallet.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,14 +1,13 @@
 package ewallet.mapper;
 
-import ewallet.domian.model.User;
-import ewallet.domian.model.Wallet;
-import ewallet.domian.model.valueobject.Money;
+import ewallet.domian.entities.User;
+import ewallet.domian.entities.Wallet;
+import ewallet.domian.entities.valueobject.Money;
 import ewallet.dto.UserDTO;
 import ewallet.dto.WalletDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-import org.mapstruct.factory.Mappers;
 
 import java.math.BigDecimal;
 

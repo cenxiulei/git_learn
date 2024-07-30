@@ -1,7 +1,7 @@
 package ewallet.controller;
 
 import ewallet.application.WalletApplicationService;
-import ewallet.domian.model.valueobject.Money;
+import ewallet.domian.entities.valueobject.Money;
 import ewallet.dto.WalletDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;

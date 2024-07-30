@@ -1,8 +1,8 @@
 package ewallet.domian.service;
 
-import ewallet.domian.model.Transaction;
-import ewallet.domian.model.Wallet;
-import ewallet.domian.model.valueobject.Money;
+import ewallet.domian.entities.Transaction;
+import ewallet.domian.entities.Wallet;
+import ewallet.domian.entities.valueobject.Money;
 import ewallet.domian.respository.TransactionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

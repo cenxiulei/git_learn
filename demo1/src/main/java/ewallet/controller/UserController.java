@@ -26,10 +26,8 @@ public class UserController {
     @Operation(summary = "用户登录", description = "根据用户名和密码进行登录")
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody UserDTO userDTO) {
-        // 简单的用户名和密码验证逻辑
         UserDTO user = userApplicationService.findUserByUsername(userDTO.getUsername());
         if (user != null && user.getPassword().equals(userDTO.getPassword())) {
-            // 返回模拟的JWT token
             return ResponseEntity.ok("JWT-TOKEN");
         }
         return ResponseEntity.status(401).body("Invalid credentials");

@@ -1,6 +1,5 @@
 package ewallet.dto;
 
-import ewallet.domian.model.valueobject.Money;
 import lombok.Data;
 
 import java.math.BigDecimal;
