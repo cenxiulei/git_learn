@@ -16,7 +16,7 @@ Redis 是一个高性能的开源内存数据库，结合 Spring 框架可以方
 
 在 Maven 或 Gradle 中添加 Spring Data Redis 的依赖：
 
-```java
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>

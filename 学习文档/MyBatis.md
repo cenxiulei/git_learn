@@ -21,7 +21,7 @@
 
 在 `pom.xml` 中添加 MyBatis 相关依赖。
 
-```java
+```xml
 <dependency>
     <groupId>org.mybatis.spring.boot</groupId>
     <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -88,7 +88,7 @@ public interface StudentMapper {
 
 - `namespace`：指定对应的 Mapper 接口全限定名。
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -178,7 +178,7 @@ public class StudentService {
 - MyBatis 提供了强大的动态 SQL 功能，可以根据条件生成不同的 SQL 语句。
 - 使用 `<if>`、`<choose>`、`<when>`、`<otherwise>`、`<trim>`、`<where>` 和 `<set>` 等标签来编写动态 SQL。
 
-```java
+```xml
 <select id="findStudentsByCondition" parameterType="map" resultType="Student">
     SELECT * FROM students
     <where>
@@ -250,7 +250,7 @@ public class StudentService {
 - 当执行 `insert`、`update`、`delete` 操作时，对应的二级缓存会被清空。
 - 在 Mapper XML 文件中配置 `<cache>` 标签启用二级缓存。
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -302,7 +302,7 @@ public class StudentService {
 
 在 `pom.xml` 中添加分页插件依赖。
 
-```java
+```xml
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -379,7 +379,7 @@ public class CustomTypeHandler implements TypeHandler<CustomType> {
 
 在 MyBatis 配置文件中注册自定义类型处理器。
 
-```java
+```xml
 <typeHandlers>
     <typeHandler handler="com.example.demo.handler.CustomTypeHandler"/>
 </typeHandlers>
